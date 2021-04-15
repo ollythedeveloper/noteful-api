@@ -1,6 +1,7 @@
 const FoldersService = {
     getAllFolders(knex) {
         return knex.select('*').from('noteful_folders')
+        console.log('Get all folders was requested')
     },
 
     insertFolder(knex, newFolder) {
