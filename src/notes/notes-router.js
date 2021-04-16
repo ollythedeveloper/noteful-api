@@ -18,13 +18,11 @@ const serializeNote = note => ({
 notesRouter
     .route('/')
     .get((req, res, next) => {
-        console.log('Getting Notes')
         NotesService.getAllNotes(
             req.app.get('db')
         )
             .then(notes => {
                 res.json(notes.map(serializeNote))
-                console.log('Notes results sent')
             })
             .catch(next)
     })
