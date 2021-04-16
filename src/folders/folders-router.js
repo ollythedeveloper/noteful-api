@@ -15,11 +15,13 @@ const serializeFolder = folder => ({
 foldersRouter
     .route('/')
     .get((req, res, next) => {
+        console.log('Getting folders')
         FoldersService.getAllFolders(
             req.app.get('db')
         )
             .then(folders => {
                 res.json(folders.map(serializeFolder))
+                console.log('results of folders sent')
             })
             .catch(next)
     })
